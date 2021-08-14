@@ -12,6 +12,12 @@ A carbonplan template for a developing a python project
 [mit license]: https://badgen.net/badge/license/MIT/blue
 
 
+This carbonplan repository contains a template for developing a python project. To start, click on the green [Use this template](https://github.com/carbonplan/python-project-template/generate) in the top right. This will allow you to create a new project using this base template.
+
+## Modifications
+
+### Updating project name
+
 
 ## license
 
