@@ -18,6 +18,14 @@ This carbonplan repository contains a template for developing a python project. 
 
 ### Updating project name
 
+`scripts` and `tests` contain filler .py files. Update/remove these with your project name.
+### Updating workflows/main.yaml
+
+In the workflows/main.yaml file, the pytest and docker sections of the github actions configuration are currently commented out. If you wish to add them, uncomment them.
+
+### Updating requirements.txt
+
+requirements.txt is currently empty. You can populate it with: ```pip3 freeze > requirements.txt```
 
 ## license
 
