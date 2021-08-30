@@ -15,7 +15,7 @@ PYTHON_REQUIRES = ">=3.7"
 description = "carbonplan python project template"
 
 setup(
-    name="carbonplan-python-project-template",
+    name="carbonplan-project",
     description=description,
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",

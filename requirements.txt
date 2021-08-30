@@ -1,5 +1,7 @@
 carbonplan
 carbonplan[styles]
-intake
+carbonplan[data]
 zarr
 pathlib
+intake
+intake-xarray
