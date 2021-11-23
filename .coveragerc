@@ -1,0 +1,4 @@
+[run]
+omit =
+    <project_name>/tests/*
+    setup.py
