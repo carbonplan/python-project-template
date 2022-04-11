@@ -1,9 +1,14 @@
 name: CI
-on: # This section defines when this workflow gets run.
+
+on:
   push:
-    branches: "*"
+    branches:
+      - main
   pull_request:
-    branches: "*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -11,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9]  # run tests on multiple Python versions
+        python-version: ['3.8', '3.9', '3.10'] # run tests on multiple Python versions
     steps:
       - uses: actions/checkout@v2.4.0
       - name: Setup Python
@@ -19,26 +24,25 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-      - uses: actions/cache@v2.1.6  # cache environment for faster test execution
+      - uses: actions/cache@v2.1.6 # cache environment for faster test execution
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/dev-requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      - run: |  # install package and test requirements as well as package
+      - run: | # install package and test requirements as well as package
           python -m pip install -r dev-requirements.txt
           python -m pip install --no-deps -e .
           python -m pip list
-      - name: Running Tests  # run tests (includes mypy checks and coverage export)
+      - name: Running Tests # run tests (includes mypy checks and coverage export)
         run: |
           python -m pytest --mypy --cov=./ --cov-report=xml --verbose ./<project_name>
-      - name: Upload coverage to Codecov  # this automatically hooks up to Codecov
+      - name: Upload coverage to Codecov # this automatically hooks up to Codecov
         uses: codecov/codecov-action@v2.1.0
         if: ${{ matrix.python-version }} == 3.9
         with:
           file: ./coverage.xml
           fail_ci_if_error: false
-
 
   docker:
     runs-on: ubuntu-latest
@@ -73,10 +77,3 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2.4.0
-      - uses: actions/setup-python@v2.2.2
-      - uses: pre-commit/action@v2.0.3
