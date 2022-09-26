@@ -39,7 +39,7 @@ jobs:
         run: |
           python -m pytest
       - name: Upload coverage to Codecov # this automatically hooks up to Codecov
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v3.1.1
         if: ${{ matrix.python-version }} == 3.9
         with:
           file: ./coverage.xml
