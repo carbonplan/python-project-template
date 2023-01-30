@@ -31,7 +31,7 @@ repos:
     rev: v0.3.7
     hooks:
       - id: blackdoc
-      
+
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: 'v0.0.237'
     hooks:
