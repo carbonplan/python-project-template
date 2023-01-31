@@ -33,7 +33,7 @@ branch = true
 
 [tool.pytest.ini_options]
 console_output_style = "count"
-addopts = "--cov=./ --cov-report=xml --report-log pytest-log.jsonl --cov-append --cov-report term-missing --verbose"
+addopts = "--cov=./ --cov-report=xml --cov-append --cov-report term-missing --verbose"
 
 [tool.ruff]
 line-length = 100
