@@ -1,27 +1,25 @@
 #!/usr/bin/env python
 
 """The setup script"""
-
-
 import pathlib
 
 from setuptools import find_packages, setup
 
+DESCRIPTION = "carbonplan python project template"
+LONG_DESCRIPTION = pathlib.Path("README.md").read_text()
+PYTHON_REQUIRES = ">=3.10"
+
 with open("requirements.txt") as f:
     INSTALL_REQUIRES = f.read().strip().split("\n")
 
-LONG_DESCRIPTION = pathlib.Path("README.md").read_text()
-PYTHON_REQUIRES = ">=3.7"
-
-description = "carbonplan python project template"
 
 setup(
     name="carbonplan-project",
-    description=description,
+    description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
-    maintainer="Raphael Hagen",
-    maintainer_email="raphael@carbonplan.org",
+    maintainer="CarbonPlan",
+    maintainer_email="hello@carbonplan.org",
     url="https://github.com/carbonplan/python-project-template",
     packages=find_packages(),
     include_package_data=True,
