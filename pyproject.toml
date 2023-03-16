@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=64", "setuptools-scm[toml]>=6.2", "wheel"]
+requires = ["setuptools>=64", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -19,9 +19,6 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Topic :: Scientific/Engineering",
 ]
-
-dynamic = ["version"]
-
 dependencies = [
     "carbonplan",
     "carbonplan[styles]",
@@ -30,6 +27,7 @@ dependencies = [
     "intake",
     "intake-xarray"
 ]
+dynamic = ["version"]
 
 [project.urls]
 repository = "https://github.com/carbonplan/python-project-template"
@@ -38,7 +36,6 @@ repository = "https://github.com/carbonplan/python-project-template"
 include = ["carbonplan_project*"]
 
 [tool.setuptools_scm]
-version_scheme = "post-release"
 local_scheme = "node-and-date"
 fallback_version = "999"
 
