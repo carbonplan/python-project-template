@@ -14,7 +14,17 @@ concurrency:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os }} - Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.10']
+        os: [ubuntu-latest]
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash -l {0}
 
     steps:
       # Checkout current git repository
@@ -29,7 +39,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2.2.0
         with:
           activate-environment: carbonplan-project-tests
-          python-version: '3.10'
+          python-version: ${{ matrix.python-version }}
           channels: conda-forge,nodefaults
           channel-priority: strict
           miniforge-version: latest
@@ -37,7 +47,13 @@ jobs:
           mamba-version: '*'
           run-post: false
           use-mamba: true
-          environment-file: envs/environment-dev.yml
+
+      - name: Install dependencies
+        run: |
+          mamba install pytest pytest-cov pytest-mypy
+
+      - name: List installed packages
+        run: mamba list
 
       - name: Install package
         run: |

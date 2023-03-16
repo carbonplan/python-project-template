@@ -7,4 +7,3 @@ dependencies:
   - pytest
   - pytest-cov
   - pytest-mypy
-  - pip
