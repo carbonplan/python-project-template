@@ -9,7 +9,7 @@
 
 A CarbonPlan template for a developing a Python project
 
-![Checks status](https://github.com/carbonplan/python-project-template/actions/workflows/main.yml/badge.svg)
+[![CI](https://github.com/carbonplan/python-project-template/actions/workflows/main.yaml/badge.svg)](https://github.com/carbonplan/python-project-template/actions/workflows/main.yaml)
 [![License](https://img.shields.io/github/license/carbonplan/python-project-template?style=flat)](https://github.com/carbonplan/python-project-template/blob/main/LICENSE)
 
 This CarbonPlan repository contains a template for developing a python project. To start, click on the green [Use this template](https://github.com/carbonplan/python-project-template/generate) button in the top right. This will allow you to create a new project using this base template.
