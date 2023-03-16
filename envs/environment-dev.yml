@@ -1,0 +1,9 @@
+name: carbonplan-project-tests
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - pre-commit
+  - pytest
+  - pytest-cov
+  - pytest-mypy
