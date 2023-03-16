@@ -1,18 +1,18 @@
-<img
-  src='https://carbonplan-assets.s3.amazonaws.com/monogram/dark-small.png'
-  height='48'
-/>
+<p align="left" >
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://carbonplan-assets.s3.amazonaws.com/monogram/light-small.png">
+  <img alt="CarbonPlan monogram." height="48" src="https://carbonplan-assets.s3.amazonaws.com/monogram/dark-small.png">
+</picture>
+</p>
 
 # python-project-template
 
-A carbonplan template for a developing a python project
+A CarbonPlan template for a developing a Python project
 
 [![CI](https://github.com/carbonplan/python-project-template/actions/workflows/main.yaml/badge.svg)](https://github.com/carbonplan/python-project-template/actions/workflows/main.yaml)
-![MIT License][]
+[![License](https://img.shields.io/github/license/carbonplan/python-project-template?style=flat)](https://github.com/carbonplan/python-project-template/blob/main/LICENSE)
 
-[mit license]: https://badgen.net/badge/license/MIT/blue
-
-This carbonplan repository contains a template for developing a python project. To start, click on the green [Use this template](https://github.com/carbonplan/python-project-template/generate) in the top right. This will allow you to create a new project using this base template.
+This CarbonPlan repository contains a template for developing a python project. To start, click on the green [Use this template](https://github.com/carbonplan/python-project-template/generate) button in the top right. This will allow you to create a new project using this base template.
 
 ## Modifications
 
