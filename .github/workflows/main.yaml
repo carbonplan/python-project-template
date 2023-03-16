@@ -25,7 +25,6 @@ jobs:
       # Checkout current git repository
       - name: Checkout
         uses: actions/checkout@v3.3.0
-        with:
 
       - name: Set up environment
         uses: mamba-org/provision-with-micromamba@v15
