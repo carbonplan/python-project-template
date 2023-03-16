@@ -17,27 +17,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout current git repository
-      - name: Checkout
-        uses: actions/checkout@v3.3.0
-        with:
-          # fetch all history so that setuptools-scm works
-          fetch-depth: 0
+      - uses: actions/checkout@v3
 
-      # Install Mambaforge with conda-forge dependencies
-      - name: Setup Mambaforge
-        uses: conda-incubator/setup-miniconda@v2.2.0
+      - name: Set up conda environment
+        uses: mamba-org/provision-with-micromamba@v15
         with:
-          activate-environment: carbonplan-project-tests
-          python-version: '3.10'
-          channels: conda-forge,nodefaults
+          micromamba-version: latest
           channel-priority: strict
-          miniforge-version: latest
-          miniforge-variant: Mambaforge
-          mamba-version: '*'
-          run-post: false
-          use-mamba: true
           environment-file: envs/environment-dev.yml
+          environment-name: carbonplan-project-tests
+          cache-env: true
+          cache-downloads: true
 
       - name: Install package
         run: |
