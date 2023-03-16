@@ -17,17 +17,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up conda environment
-        uses: mamba-org/provision-with-micromamba@v15
+      # Checkout current git repository
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
         with:
-          micromamba-version: latest
+          # fetch all history so that setuptools-scm works
+          fetch-depth: 0
+
+      # Install Mambaforge with conda-forge dependencies
+      - name: Setup Mambaforge
+        uses: conda-incubator/setup-miniconda@v2.2.0
+        with:
+          activate-environment: carbonplan-project-tests
+          python-version: '3.10'
+          channels: conda-forge,nodefaults
           channel-priority: strict
+          miniforge-version: latest
+          miniforge-variant: Mambaforge
+          mamba-version: '*'
+          run-post: false
+          use-mamba: true
           environment-file: envs/environment-dev.yml
-          environment-name: carbonplan-project-tests
-          cache-env: true
-          cache-downloads: true
 
       - name: Install package
         run: |
@@ -37,8 +47,6 @@ jobs:
 
       - name: Tests # run tests (includes mypy checks and coverage export)
         run: |
-          which micromamba
-          which python
           python -m pytest
 
       # - name: Upload coverage to Codecov # this automatically hooks up to Codecov
