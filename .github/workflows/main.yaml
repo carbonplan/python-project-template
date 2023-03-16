@@ -37,6 +37,8 @@ jobs:
 
       - name: Tests # run tests (includes mypy checks and coverage export)
         run: |
+          which micromamba
+          which python
           python -m pytest
 
       # - name: Upload coverage to Codecov # this automatically hooks up to Codecov
