@@ -17,9 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout current git repository
-      - name: Checkout
-        uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v3
 
       - name: Set up environment
         uses: mamba-org/provision-with-micromamba@v15
