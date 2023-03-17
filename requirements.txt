@@ -1,6 +1,0 @@
-carbonplan
-carbonplan[styles]
-carbonplan[data]
-zarr
-intake
-intake-xarray

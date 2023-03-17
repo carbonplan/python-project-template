@@ -1,4 +1,0 @@
-pytest
-pytest-cov
-pytest-mypy
--r requirements.txt
