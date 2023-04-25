@@ -1,0 +1,22 @@
+{
+  "title": "<Title of DOI>",
+  "description": "<Description of DOI>",
+  "creators": [
+    {
+      "name": "Creator Name 1",
+      "affiliation": "CarbonPlan",
+      "orcid": ""
+    },
+    {
+      "name": "Creator Name 2",
+      "affiliation": "CarbonPlan",
+      "orcid": ""
+    }
+   
+  ],
+  "upload_type": "<ex: software>",
+  "keywords": [
+    "<keyword_1>",
+    "<keyword_2>",
+
+  ]
