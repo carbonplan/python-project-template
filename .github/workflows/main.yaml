@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.10']
+        python-version: ["3.10"]
         os: [ubuntu-latest]
     timeout-minutes: 30
     defaults:
@@ -44,7 +44,7 @@ jobs:
           channel-priority: strict
           miniforge-version: latest
           miniforge-variant: Mambaforge
-          mamba-version: '*'
+          mamba-version: "*"
           run-post: false
           use-mamba: true
 
